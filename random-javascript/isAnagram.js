@@ -19,6 +19,7 @@ Example: [car, rats, arc, star] → [rats, star, arc, car]
 const areAnagrams = (wordArray) => {
     // hold each Anagram as a key
     const anagrams = {}
+    const anagramArray = []
     wordArray.forEach(word => {
         key = word.split('').sort().join(); // we have to keep rearranging by individual characters
         if (key in anagrams) {
@@ -27,4 +28,8 @@ const areAnagrams = (wordArray) => {
             anagrams[key] = [word] // will be in the array
         }
     });
+    anagramArray.push(Object.values(anagrams).join().split(','));
+    return anagramArray
 }
+
+console.log(areAnagrams(['car', 'rats', 'arc', 'star']))
