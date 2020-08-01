@@ -5,11 +5,15 @@ Anagram: A word or phrase formed by reordering the letters of another word or ph
 */
 
 const isAnagram = (word1, word2) => {
+    // splits by character, sorts the characters alphabetically, joins them back together
     if (word1.split('').sort().join() == word2.split('').sort().join()) {
         return true;
     }
     return false;
 }
+
+console.log(isAnagram('car', 'arc'));
+console.log(isAnagram('car', 'star'));
 
 /*
 Given an array of words have your function group the words which are anagrams next to each other.
