@@ -15,12 +15,30 @@ Given a year, determine whether it is a leap year. If it is a leap year, return 
 
 Note that the code stub provided reads from STDIN and passes arguments to the is_leap function. It is only necessary to complete the is_leap function.
 '''
+'''
+Whiteboarding
+
+* #is_leap(year) receives an integer as an argument.
+* We first check that the argument year is integer type.
+* Initialize a boolean leap as False.
+* Then we can check for two sets of conditionals, and if one set is true, we seat leap to true.
+    * A leap year happens every 4 years.
+    * A leap year is divisible by 100 is only a leap year if it is also divisible by 400.
+* We can't have year outside of integer values of year from 1900 to 100000, or we return False.
+* At the end of the function, return leap boolean value
+'''
 
 def is_leap(year):
     leap = False
     
-    # Write your logic here
     
+    # Write your logic here
+    if isinstance(year, int) and year >= 1900 and year <= 100000:
+        if year % 4 == 0 and year % 100 != 0:
+            leap = True
+        elif year % 4 == 0 and year % 100 == 0 and year % 400 == 0:
+            leap = True
+
     return leap
 
 year = int(input())
