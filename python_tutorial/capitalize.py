@@ -38,8 +38,21 @@ Chris Alan
 
 '''
 
+'''
+Whiteboarding
+
+* Since the string S contains alphanumeric characters and spaces, I won't have to filter out weird characters !@#$
+* I can use String.split(' ') to split first and last names to array by whitespace.
+* I should target the first character in each array element
+* I should be able to concatenate the full name back into a string
+'''
+
 
 # Complete the solve function below.
 def solve(s):
-
-if __name__ == '__main__':
+    first_and_last_name = s.split(' ') # split into array by whitespace
+    full_name = []
+    for name in first_and_last_name:
+        full_name.append(name.capitalize())
+     
+    return ' '.join(full_name)
