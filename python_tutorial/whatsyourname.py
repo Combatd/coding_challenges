@@ -30,4 +30,4 @@ The input read by the program is stored as a string data type. A string is a col
 '''
 
 def print_full_name(a, b):
-    print("")
+    print("Hello {0} {1}! You just delved into python.".format(a, b))
