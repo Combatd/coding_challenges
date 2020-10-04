@@ -38,6 +38,7 @@ We print the sum of the array's elements: 1 + 2 + 3 + 4 + 10 + 11 = 31.
 
 import os
 import sys
+import functools
 
 #
 # Complete the simpleArraySum function below.
@@ -46,4 +47,8 @@ def simpleArraySum(ar):
     #
     # Write your code here.
     #
-    
+
+    if len(ar) < 1: # if the array is empty
+        return 0
+
+    return functools.reduce(lambda a,b : a + b, ar)
