@@ -41,4 +41,11 @@ import sys
 
 # Complete the reverseArray function below.
 def reverseArray(a):
-    return a
+    a_copy = []
+    
+    i = -2
+    for element in a:
+        a_copy.append(a[i + 1])
+        i -= 1
+
+    return a_copy
