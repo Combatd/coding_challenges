@@ -86,5 +86,23 @@ import re
 import sys
 
 # Complete the compareTriplets function below.
+
 def compareTriplets(a, b):
-    return None
+    results = [0, 0] # list holds the scores
+   
+    if a[0] > b[0]:
+        results[0] += 1
+    if a[1] > b[1]:
+        results[0] += 1
+    if a[2] > b[2]: 
+        results[0] += 1
+    if a[0] < b[0]: 
+        results[1] += 1
+    if a[1] < b[1]:
+        results[1] += 1
+    if a[2] < b[2]:
+        results[1] += 1
+
+
+    return results
+
