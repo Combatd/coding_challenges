@@ -6,10 +6,55 @@
 # edges between nodes that have an Eulerian tour.
 #
 
+'''
+ In the first step, I pick two random nodes and connect them
+00:26
+and choose a random node among the nodes that are connected—say this one—
+00:29
+and connect them and repeat this process until all the nodes are connected.
+00:32
+Then classify all the nodes as being odd or even.
+00:35
+All the nodes in orange have odd degree, and the other two are even.
+00:38
+We then pick a node in the set of nodes with odd degree—say this one—
+00:42
+and connect it with another node that has odd degree.
+00:44
+We'll connect it to that one. These both now have even degree.
+00:47
+We repeat this process—pick this node, connect it with that node.
+00:50
+Now we have two nodes left that have odd degree.
+00:53
+Unfortunately, they're already connected.
+00:55
+What we can do is pick one of the nodes with odd degree
+00:57
+and then randomly pick another node with even degree
+00:59
+that it's not already connected to and connect them. So, maybe this one down here.
+01:02
+Now this new node has odd degree. The one node no longer does.
+01:05
+Now we have two nodes with odd degree that we can connect. 
+'''
+
+import random
+
 def create_tour(nodes):
     # your code here
-    return []
 
+    starting_node = nodes[0] # get the first one
+    number_of_nodes = len(nodes)
+    i = 0
+    vertices = []
+    #  Connect 1st with 2nd, 2nd with 3rd, 3rd with 4th, and last with 1st
+    while i < number_of_nodes - 1:
+        vertices.append((nodes[i], nodes[i+1]))
+        i = i + 1
+    vertices.append((nodes[number_of_nodes - 1], starting_node))
+    return vertices
 #########
 
 def get_degree(tour):
@@ -70,7 +115,7 @@ def is_eulerian_tour(nodes, tour):
     if len(connected) == len(nodes):
         return True
     else:
-        print()"Your graph wasn't connected")
+        print("Your graph wasn't connected")
         return False
 
 def test():
