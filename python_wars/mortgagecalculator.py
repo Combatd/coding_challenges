@@ -53,5 +53,10 @@ amort(6, 100000, 360, 12) ->
 "num_payment 12 c 600 princ 105 int 494 balance 98772"
 '''
 
+import math
+
 def amort(rate, bal, term, num_payments):
-    pass
+    # c = n / d, where n = r * balance and d = 1 - (1 + r)**(-term)
+    n = rate * bal
+    d = 1 - (1 + rate) ** (-term)
+    c = n / d
