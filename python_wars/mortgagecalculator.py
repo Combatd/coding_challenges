@@ -57,6 +57,6 @@ import math
 
 def amort(rate, bal, term, num_payments):
     # c = n / d, where n = r * balance and d = 1 - (1 + r)**(-term)
-    n = rate * bal
-    d = 1 - (1 + rate) ** (-term)
+    n = rate/(100 * 12) * bal
+    d = 1 - (1 + rate/(100*12)) ** (-1 * term)
     c = n / d
