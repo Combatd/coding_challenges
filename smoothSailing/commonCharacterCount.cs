@@ -57,8 +57,8 @@ namespace arcade {
             string[] arr1 = s1.Split("");
             string[] arr2 = s2.Split("");
 
-            List<string> strings1 = new List<string>(arr1);
-            List<string> strings2 = new List<string>(arr2);
+            ArrayList strings1 = new ArrayList(arr1);
+            ArrayList strings2 = new ArrayList(arr2);
 
             // loop over the first string list to get the index of a matcher
             for (int i = 0; i < strings1.Count; i++) {
