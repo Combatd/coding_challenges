@@ -54,10 +54,23 @@ using System.Threading;
 namespace arcade {
 
     public class SmoothSailing {
-    
-        bool isLucky(int n) {
-            
+
+        bool isLucky(int n)
+        {
+            string str = n.ToString();
+
+            string firstStrings = str.Substring(0, str.Length / 2);
+            string secondStrings = str.Substring(str.Length / 2);
+
+            int firstSum = 0;
+            int secondSum = 0;
+
+            for(int i = 0; i < firstStrings.Length; i++) {
+                firstSum += (firstStrings[i] - '0');
+                secondSum += (secondStrings[i] - '0');
+            }
+
+            return firstSum == secondSum;
         }
 
-    }
 }
