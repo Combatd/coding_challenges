@@ -17,5 +17,15 @@ alternatingSums(a) = [180, 105].
 
 
 function alternatingSums(a: number[]): number[] {
-    return [];
+    let midPoint: number = Math.floor(a.length / 2);
+    let firstTeam: number = 0;
+    let secondTeam: number = 0;
+
+    for(let i = 0; i < a.length; i+=2) {
+        firstTeam += a[i];
+    }
+    for(let j = 1; j < a.length; j+=2) {
+        secondTeam += a[j];
+    }
+    return [firstTeam, secondTeam];
 }
