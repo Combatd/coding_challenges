@@ -7,5 +7,22 @@ If there are no such elements, return -1.
 */
 
 function solution(a: number[]): number {
-    
+    let index: number = a.length - 1;
+    const existingNumbersSet: Set<number> = new Set(); // keep track of numbers using set or linked list
+    let firstDuplicate: number = -1;
+
+    while(index >= 0) {
+        if (existingNumbersSet.has(a[index])) {
+            firstDuplicate = index
+        } else {
+            existingNumbersSet.add(a[index]);
+        }
+        index--
+    }
+
+    if (firstDuplicate !== -1) {
+        return a[firstDuplicate];
+    } else {
+        return -1;
+    }
 }
