@@ -6,6 +6,8 @@ There are two versions of the Internet protocol, and thus two versions of addres
 Given a string, find out if it satisfies the IPv4 address naming rules.
 """
 
+import re
+
 def isIPv4Address(inputString):
   numbersArray = inputString.split('.')
   hasFourSetsOfNumbers = len(numbersArray) == 4
@@ -24,14 +26,19 @@ def isIPv4Address(inputString):
   if isNumbers is False:
     return False
   
-  isValidDigit = str(int(numbersArray[0])) == int(numbersArray[0]) and str(int(numbersArray[1])) == int(numbersArray[1]) and str(int(numbersArray[2])) == int(numbersArray[2]) and str(int(numbersArray[3])) == int(numbersArray[3])
+  # regular expression (re) to make replacement of each number element
+  numbersArray = [number for number in numbersArray if number != '' and number != '00' and number != '01' and not re.search('[^0-9]', number)]
   
-  if isValidDigit is False:
+  if len(numbersArray) != 4:
     return False
 
-  isBinary = int(numbersArray[0]) <= 255  and int(numbersArray[1]) <= 255  and int(numbersArray[2]) <= 255  and int(numbersArray[3]) <= 255 and int(numbersArray[0]) > -1 and int(numbersArray[1]) > -1  and int(numbersArray[2]) > -1  and int(numbersArray[3]) > -1 
+  notBinaryNums = []
+  # notBinaryNums = [number for number in numbersArray if int(number) > 255 or int(number) < 0]
+  for number in numbersArray:
+    if int(number) > 255 or int(number) < 0:
+       notBinaryNums.append(number)
 
-  if isBinary is False: 
+  if len(notBinaryNums) == 0:
+    return True
+  else:
     return False
-  
-  return True
